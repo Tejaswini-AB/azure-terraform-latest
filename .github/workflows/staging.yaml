@@ -13,7 +13,7 @@ env:
   ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID_HUB }}
   ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
   TF_STATE_RG: rg-tfstate-uaen-01
-  TF_STATE_SA: sttfstateuaenor01
+  TF_STATE_SA: sttfstateuaenor02
   TF_STATE_CONTAINER: tfstate
   TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID_STG }}
   TF_VAR_hub_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID_HUB }}
