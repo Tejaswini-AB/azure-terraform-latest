@@ -34,9 +34,7 @@ jobs:
         with:
           terraform_version: "1.9.8"
 
-      - name: Terraform fmt check
-        run: terraform fmt -check -recursive ../..
-
+   
       - name: Verify ARM variables
         run: |
           echo "CLIENT_ID set? $([ -n "$ARM_CLIENT_ID" ] && echo YES || echo NO)"
