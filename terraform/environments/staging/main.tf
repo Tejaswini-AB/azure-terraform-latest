@@ -20,6 +20,7 @@ provider "azurerm" {
   subscription_id = var.subscription_id  
 }
 
+
 # ---------------------------------------------------------
 # Resource Group
 # ---------------------------------------------------------
@@ -247,7 +248,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "stg" {
   name                  = "link-${var.stg_vnet_name}"
   resource_group_name   = local.hub_dns_rg_name
   private_dns_zone_name = each.value
-  virtual_network_id    = module.vnet_stg.id
+  virtual_network_id    = module.vnet_stg.vnet_id
   registration_enabled  = false
   tags                  = var.tags
 }
