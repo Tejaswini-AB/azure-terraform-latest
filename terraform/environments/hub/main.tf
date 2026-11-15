@@ -78,3 +78,34 @@ module "vnet_hub" {
 
   tags = var.tags
 }
+
+resource "azurerm_private_dns_zone" "this" {
+  for_each            = local.private_dns_zones
+  name                = each.value
+  resource_group_name = module.rg_hub.name
+  tags                = var.tags
+}
+
+resource "azurerm_private_dns_zone_virtual_network_link" "hub" {
+  for_each              = local.private_dns_zones
+  name                  = "link-${var.hub_vnet_name}"
+  resource_group_name   = module.rg_hub.name
+  private_dns_zone_name = azurerm_private_dns_zone.this[each.key].name
+  virtual_network_id    = module.vnet_hub.vnet_id
+  registration_enabled  = false
+  tags                  = var.tags
+}
+
+
+locals {
+  private_dns_zones = {
+    acr      = "privatelink.azurecr.io"
+    postgres = "privatelink.postgres.database.azure.com"
+    funcapp  = "privatelink.azurewebsites.net"
+    redis    = "privatelink.redis.cache.windows.net"
+    kv       = "privatelink.vaultcore.azure.net"
+
+    # Storage Account Blob Private Endpoint
+    blob     = "privatelink.blob.core.windows.net"
+  }
+}
