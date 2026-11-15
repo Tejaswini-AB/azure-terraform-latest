@@ -3,6 +3,11 @@ variable "subscription_id" {
   type        = string
 }
 
+variable "hub_subscription_id" {
+  description = "Hub Azure subscription ID"
+  type        = string
+}
+
 variable "location" {
   description = "Azure region"
   type        = string
