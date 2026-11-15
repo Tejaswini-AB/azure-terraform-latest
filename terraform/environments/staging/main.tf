@@ -131,7 +131,7 @@ module "acr_stg" {
   location                   = var.location
   zone_redundancy_enabled    = false
   sku                        = var.acr_sku
-  private_dns_zone_id        = = local.dns_zone_ids["acr"]#module.acr_dns_zone_stg.id
+  private_dns_zone_id        = local.dns_zone_ids["acr"]#module.acr_dns_zone_stg.id
   tags                       = var.tags
 }
 
