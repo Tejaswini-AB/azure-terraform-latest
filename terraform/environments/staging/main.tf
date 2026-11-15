@@ -20,6 +20,12 @@ provider "azurerm" {
   subscription_id = var.subscription_id  
 }
 
+# Hub subscription - aliased provider
+provider "azurerm" {
+  alias           = "hub"
+  features        {}
+  subscription_id = var.hub_subscription_id
+}
 
 # ---------------------------------------------------------
 # Resource Group
@@ -71,8 +77,8 @@ module "vnet_stg" {
     }
     (var.function_subnet_name) = {
       address_prefixes   = var.function_subnet_cidr
-      delegation_name    = "appservice-delegation"
-      delegation_service = "Microsoft.Web/serverFarms"
+      delegation_name    = "flex-consumption-delegation"
+      delegation_service = "Microsoft.App/environments"
 
       nsg_name = "nsg-fun-stg-uaen-01"
 
@@ -182,7 +188,7 @@ module "function_app_stg" {
   storage_account_name       = var.function_storage_account_name
   appservice_plan_name       = var.function_app_service_plan_name
   vnet_subnet_id             = module.vnet_stg.subnet_ids[var.function_subnet_name]
-  private_endpoint_subnet_id = module.vnet_stg.subnet_ids[var.private_endpoint_subnet_name]
+  private_endpoint_subnet_id = module.vnet_stg.subnet_ids[var.function_subnet_name]
   private_dns_zone_id        = local.dns_zone_ids["funcapp"]#module.funcapp_dns_zone_stg.id
   tags                       = var.tags
 }
