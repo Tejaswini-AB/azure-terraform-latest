@@ -16,6 +16,7 @@ env:
   TF_STATE_SA: sttfstateuaenor01
   TF_STATE_CONTAINER: tfstate
   TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID_STG }}
+  TF_VAR_hub_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID_HUB }}
   TF_VAR_tenant_id: ${{ secrets.AZURE_TENANT_ID}}
   TF_VAR_postgres_administrator_password: ${{ secrets.TF_VAR_postgres_administrator_password_stg }}
  
