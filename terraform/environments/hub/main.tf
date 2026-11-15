@@ -79,19 +79,6 @@ module "vnet_hub" {
   tags = var.tags
 }
 
-# ---------------------------------------------------------
-# Private DNS Zones (shared, owned by hub)
-# ---------------------------------------------------------
-locals {
-  private_dns_zones = {
-    acr      = "privatelink.azurecr.io"
-    postgres = "privatelink.postgres.database.azure.com"
-    funcapp  = "privatelink.azurewebsites.net"
-    redis    = "privatelink.redis.cache.windows.net"
-    kv       = "privatelink.vaultcore.azure.net"
-  }
-}
-
 resource "azurerm_private_dns_zone" "this" {
   for_each            = local.private_dns_zones
   name                = each.value
