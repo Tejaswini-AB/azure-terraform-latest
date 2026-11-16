@@ -11,6 +11,9 @@ terraform {
   # container_name are supplied at `terraform init` time via -backend-config
   # (see .github/workflows/*.yml, or backend-config.hcl for local use).
   backend "azurerm" {
+     resource_group_name  = "rg-tfstate-uaen-01"
+    storage_account_name = "sttfstateuaenor02"
+    container_name       = "tfstate"
     key = "hub.terraform.tfstate"
   }
 }
