@@ -28,6 +28,21 @@ provider "azurerm" {
 }
 
 # ---------------------------------------------------------
+# Read hub outputs (hub's own tfstate)
+# ---------------------------------------------------------
+data "terraform_remote_state" "hub" {
+  backend = "azurerm"
+  config = {
+    resource_group_name  = var.hub_tfstate_rg
+    storage_account_name = var.hub_tfstate_storage_account
+    container_name       = var.hub_tfstate_container
+    key                  = var.hub_tfstate_key
+    subscription_id      = var.hub_subscription_id
+    use_azuread_auth     = true
+  }
+}
+
+# ---------------------------------------------------------
 # Resource Group
 # ---------------------------------------------------------
 module "rg_network_stg" {
