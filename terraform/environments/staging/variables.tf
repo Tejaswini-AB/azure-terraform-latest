@@ -230,3 +230,71 @@ variable "keyvault_name" {
   type        = string
   default     = "kv-viwell-stg-uaen-002"
 }
+
+# ---------------------------------------------------------
+# Development Assets Storage Account
+# ---------------------------------------------------------
+variable "dev_assets_storage_account_name" {
+  description = "Development assets Storage Account name"
+  type        = string
+  default     = "stviwelldevassets01"
+}
+
+variable "dev_assets_container_name" {
+  description = "Development assets Blob Container name"
+  type        = string
+  default     = "assets"
+}
+
+variable "dev_assets_purpose" {
+  description = "Development assets storage purpose tag"
+  type        = string
+  default     = "development-assets"
+}
+
+variable "dev_assets_environment" {
+  description = "Development assets environment tag"
+  type        = string
+  default     = "development"
+}
+
+# ---------------------------------------------------------
+# Preproduction Assets Storage Account
+# ---------------------------------------------------------
+variable "preprod_assets_storage_account_name" {
+  description = "Preproduction assets Storage Account name"
+  type        = string
+  default     = "stviwellpreassets01"
+}
+
+variable "preprod_assets_container_name" {
+  description = "Preproduction assets Blob Container name"
+  type        = string
+  default     = "assets"
+}
+
+variable "preprod_assets_purpose" {
+  description = "Preproduction assets storage purpose tag"
+  type        = string
+  default     = "preproduction-assets"
+}
+
+variable "preprod_assets_environment" {
+  description = "Preproduction assets environment tag"
+  type        = string
+  default     = "preproduction"
+}
+
+# ---------------------------------------------------------
+# Shared Assets Storage Configuration
+# ---------------------------------------------------------
+variable "assets_storage_replication_type" {
+  description = "Replication type for assets storage accounts"
+  type        = string
+  default     = "LRS"
+
+  validation {
+    condition     = contains(["LRS", "ZRS", "GRS", "RAGRS", "GZRS", "RAGZRS"], var.assets_storage_replication_type)
+    error_message = "Invalid Azure Storage replication type."
+  }
+}
