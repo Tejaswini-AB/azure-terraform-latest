@@ -239,6 +239,31 @@ module "keyvault_stg" {
   tags                       = var.tags
 }
 
+
+# ---------------------------------------------------------
+# staging Assets Storage Account
+# ---------------------------------------------------------
+module "storage_preprod_assets" {
+  source = "../../modules/storage-account"
+
+  storage_account_name = var.preprod_assets_storage_account_name
+  resource_group_name  = module.rg_stg.name
+  location             = var.location
+
+  container_name = var.preprod_assets_container_name
+
+  private_endpoint_subnet_id = module.vnet_stg.subnet_ids[
+    var.private_endpoint_subnet_name
+  ]
+
+  private_dns_zone_id = local.dns_zone_ids["blob"]
+
+  replication_type = var.assets_storage_replication_type
+
+  tags = tags
+}
+
+
 locals {
   dns_zone_ids    = data.terraform_remote_state.hub.outputs.private_dns_zone_ids
   dns_zone_names  = data.terraform_remote_state.hub.outputs.private_dns_zone_names
