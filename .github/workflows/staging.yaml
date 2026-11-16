@@ -16,7 +16,7 @@ env:
   TF_STATE_SA: sttfstateuaenor02
   TF_STATE_CONTAINER: tfstate
   TF_VAR_tfstate_rg: rg-tfstate-uaen-01
-  TF_VAR_tfstate_sa: sttfstateuaenor01
+  TF_VAR_tfstate_sa: sttfstateuaenor02
   TF_VAR_tfstate_container: tfstate
   TF_VAR_tfstate_key: stg.terraform.tfstate     
   TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID_STG }}
