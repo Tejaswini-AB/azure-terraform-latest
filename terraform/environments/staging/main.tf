@@ -251,7 +251,7 @@ locals {
 resource "azurerm_private_dns_zone_virtual_network_link" "stg" {
   provider              = azurerm.hub
   for_each              = local.dns_zone_names
-  name                  = "link-${var.stg_vnet_name}"
+  name                  = "link-${var.vnet_name}"
   resource_group_name   = local.hub_dns_rg_name
   private_dns_zone_name = each.value
   virtual_network_id    = module.vnet_stg.vnet_id
