@@ -260,7 +260,7 @@ module "storage_preprod_assets" {
 
   replication_type = var.assets_storage_replication_type
 
-  tags = tags
+  tags = var.tags
 }
 
 
