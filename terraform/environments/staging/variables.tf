@@ -120,7 +120,7 @@ variable "database_subnet_cidr" {
 variable "acr_name" {
   description = "Azure Container Registry Name"
   type        = string
-  default     = "acrviwellstguaen001"
+  default     = "acrviwellstguaen002"
 }
 
 variable "acr_sku" {
@@ -167,7 +167,7 @@ variable "aks_user_vm_size" {
 variable "aks_backup_storage_account_name" {
   description = "AKS Backup Storage Account"
   type        = string
-  default     = "stviwellbkupaen01"
+  default     = "stviwellbkupaen02"
 }
 
 
@@ -177,7 +177,7 @@ variable "aks_backup_storage_account_name" {
 variable "postgres_name" {
   description = "PostgreSQL Server Name"
   type        = string
-  default     = "psql-viwell-stg-uaen-01"
+  default     = "psql-viwell-stg-uaen-02"
 }
 
 variable "postgres_sku_name" {
@@ -198,7 +198,7 @@ variable "function_app_name" {
 variable "function_storage_account_name" {
   description = "Function Storage Account"
   type        = string
-  default     = "stviwellfunuaen001"
+  default     = "stviwellfunuaen002"
 }
 
 variable "function_app_service_plan_name" {
@@ -213,7 +213,7 @@ variable "function_app_service_plan_name" {
 variable "redis_name" {
   description = "Redis Name"
   type        = string
-  default     = "redis-viwell-stg-uaen-01"
+  default     = "redis-viwell-stg-uaen-02"
 }
 
 variable "redis_sku_name" {
@@ -228,5 +228,5 @@ variable "redis_sku_name" {
 variable "keyvault_name" {
   description = "Key Vault Name"
   type        = string
-  default     = "kv-viwell-stg-uaen-001"
+  default     = "kv-viwell-stg-uaen-002"
 }
