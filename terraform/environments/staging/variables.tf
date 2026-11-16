@@ -8,10 +8,10 @@ variable "hub_subscription_id" {
   type        = string
 }
 
-variable "hub_tfstate_rg"              { type = string }
-variable "hub_tfstate_storage_account" { type = string }
-variable "hub_tfstate_container"       { type = string }
-variable "hub_tfstate_key"             { type = string }
+variable "tfstate_rg"              { type = string }
+variable "tfstate_storage_account" { type = string }
+variable "tfstate_container"       { type = string }
+variable "tfstate_key"             { type = string }
 
 variable "location" {
   description = "Azure region"
