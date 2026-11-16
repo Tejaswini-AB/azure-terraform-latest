@@ -9,7 +9,7 @@ variable "hub_subscription_id" {
 }
 
 variable "tfstate_rg"              { type = string }
-variable "tfstate_storage_account" { type = string }
+variable "tfstate_sa"              { type = string }
 variable "tfstate_container"       { type = string }
 variable "tfstate_key"             { type = string }
 
