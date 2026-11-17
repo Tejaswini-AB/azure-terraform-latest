@@ -84,7 +84,7 @@ variable "vnet_subnet_id" {
 variable "availability_zones" {
   description = "Availability zones for the default node pool, e.g. [\"1\",\"2\",\"3\"]. Empty list disables zone pinning."
   type        = list(string)
-  default     = ["1"]
+  default     = ["2"]
 }
 
 variable "storage_account_name" {
